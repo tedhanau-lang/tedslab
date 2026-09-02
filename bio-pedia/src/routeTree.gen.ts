@@ -10,33 +10,358 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as CustomListsRouteImport } from './routes/custom-lists'
+import { Route as DownloadRouteImport } from './routes/download'
+import { Route as EvolutionRouteImport } from './routes/evolution'
+import { Route as FlashcardsRouteImport } from './routes/flashcards'
+import { Route as QuizzesRouteImport } from './routes/quizzes'
+import { Route as SavedRouteImport } from './routes/saved'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SubjectSectionRouteImport } from './routes/$subject.$section'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as ArticlesSlugRouteImport } from './routes/articles.$slug'
+import { Route as ArticlesCellularRespirationRouteImport } from './routes/articles.cellular-respiration'
+import { Route as ArticlesEvolutionNaturalSelectionRouteImport } from './routes/articles.evolution-natural-selection'
+import { Route as ArticlesMeiosisGameteFormationRouteImport } from './routes/articles.meiosis-gamete-formation'
+import { Route as ArticlesPhotosynthesisLightReactionsRouteImport } from './routes/articles.photosynthesis-light-reactions'
+import { Route as AuthenticatedAdminArticlesRouteImport } from './routes/_authenticated/admin.articles'
+import { Route as AuthenticatedAdminHeroSlidesRouteImport } from './routes/_authenticated/admin.hero-slides'
+import { Route as AuthenticatedAdminNavLinksRouteImport } from './routes/_authenticated/admin.nav-links'
+import { Route as AuthenticatedAdminPagesRouteImport } from './routes/_authenticated/admin.pages'
+import { Route as AuthenticatedAdminPagesListRouteImport } from './routes/_authenticated/admin.pages-list'
+import { Route as AuthenticatedAdminSectionsRouteImport } from './routes/_authenticated/admin.sections'
+import { Route as AuthenticatedAdminTopicsRouteImport } from './routes/_authenticated/admin.topics'
+import { Route as AuthenticatedAdminVideosRouteImport } from './routes/_authenticated/admin.videos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomListsRoute = CustomListsRouteImport.update({
+  id: '/custom-lists',
+  path: '/custom-lists',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadRoute = DownloadRouteImport.update({
+  id: '/download',
+  path: '/download',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EvolutionRoute = EvolutionRouteImport.update({
+  id: '/evolution',
+  path: '/evolution',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FlashcardsRoute = FlashcardsRouteImport.update({
+  id: '/flashcards',
+  path: '/flashcards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizzesRoute = QuizzesRouteImport.update({
+  id: '/quizzes',
+  path: '/quizzes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SavedRoute = SavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubjectSectionRoute = SubjectSectionRouteImport.update({
+  id: '/$subject/$section',
+  path: '/$subject/$section',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const ArticlesSlugRoute = ArticlesSlugRouteImport.update({
+  id: '/articles/$slug',
+  path: '/articles/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticlesCellularRespirationRoute =
+  ArticlesCellularRespirationRouteImport.update({
+    id: '/articles/cellular-respiration',
+    path: '/articles/cellular-respiration',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ArticlesEvolutionNaturalSelectionRoute =
+  ArticlesEvolutionNaturalSelectionRouteImport.update({
+    id: '/articles/evolution-natural-selection',
+    path: '/articles/evolution-natural-selection',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ArticlesMeiosisGameteFormationRoute =
+  ArticlesMeiosisGameteFormationRouteImport.update({
+    id: '/articles/meiosis-gamete-formation',
+    path: '/articles/meiosis-gamete-formation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ArticlesPhotosynthesisLightReactionsRoute =
+  ArticlesPhotosynthesisLightReactionsRouteImport.update({
+    id: '/articles/photosynthesis-light-reactions',
+    path: '/articles/photosynthesis-light-reactions',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AuthenticatedAdminArticlesRoute =
+  AuthenticatedAdminArticlesRouteImport.update({
+    id: '/articles',
+    path: '/articles',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminHeroSlidesRoute =
+  AuthenticatedAdminHeroSlidesRouteImport.update({
+    id: '/hero-slides',
+    path: '/hero-slides',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminNavLinksRoute =
+  AuthenticatedAdminNavLinksRouteImport.update({
+    id: '/nav-links',
+    path: '/nav-links',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminPagesRoute = AuthenticatedAdminPagesRouteImport.update({
+  id: '/pages',
+  path: '/pages',
+  getParentRoute: () => AuthenticatedAdminRoute,
+} as any)
+const AuthenticatedAdminPagesListRoute =
+  AuthenticatedAdminPagesListRouteImport.update({
+    id: '/pages-list',
+    path: '/pages-list',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminSectionsRoute =
+  AuthenticatedAdminSectionsRouteImport.update({
+    id: '/sections',
+    path: '/sections',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminTopicsRoute =
+  AuthenticatedAdminTopicsRouteImport.update({
+    id: '/topics',
+    path: '/topics',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
+const AuthenticatedAdminVideosRoute =
+  AuthenticatedAdminVideosRouteImport.update({
+    id: '/videos',
+    path: '/videos',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/custom-lists': typeof CustomListsRoute
+  '/download': typeof DownloadRoute
+  '/evolution': typeof EvolutionRoute
+  '/flashcards': typeof FlashcardsRoute
+  '/quizzes': typeof QuizzesRoute
+  '/saved': typeof SavedRoute
+  '/settings': typeof SettingsRoute
+  '/$subject/$section': typeof SubjectSectionRoute
+  '/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
+  '/articles/cellular-respiration': typeof ArticlesCellularRespirationRoute
+  '/articles/evolution-natural-selection': typeof ArticlesEvolutionNaturalSelectionRoute
+  '/articles/meiosis-gamete-formation': typeof ArticlesMeiosisGameteFormationRoute
+  '/articles/photosynthesis-light-reactions': typeof ArticlesPhotosynthesisLightReactionsRoute
+  '/admin/articles': typeof AuthenticatedAdminArticlesRoute
+  '/admin/hero-slides': typeof AuthenticatedAdminHeroSlidesRoute
+  '/admin/nav-links': typeof AuthenticatedAdminNavLinksRoute
+  '/admin/pages': typeof AuthenticatedAdminPagesRoute
+  '/admin/pages-list': typeof AuthenticatedAdminPagesListRoute
+  '/admin/sections': typeof AuthenticatedAdminSectionsRoute
+  '/admin/topics': typeof AuthenticatedAdminTopicsRoute
+  '/admin/videos': typeof AuthenticatedAdminVideosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/custom-lists': typeof CustomListsRoute
+  '/download': typeof DownloadRoute
+  '/evolution': typeof EvolutionRoute
+  '/flashcards': typeof FlashcardsRoute
+  '/quizzes': typeof QuizzesRoute
+  '/saved': typeof SavedRoute
+  '/settings': typeof SettingsRoute
+  '/$subject/$section': typeof SubjectSectionRoute
+  '/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/dashboard': typeof AuthenticatedDashboardRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
+  '/articles/cellular-respiration': typeof ArticlesCellularRespirationRoute
+  '/articles/evolution-natural-selection': typeof ArticlesEvolutionNaturalSelectionRoute
+  '/articles/meiosis-gamete-formation': typeof ArticlesMeiosisGameteFormationRoute
+  '/articles/photosynthesis-light-reactions': typeof ArticlesPhotosynthesisLightReactionsRoute
+  '/admin/articles': typeof AuthenticatedAdminArticlesRoute
+  '/admin/hero-slides': typeof AuthenticatedAdminHeroSlidesRoute
+  '/admin/nav-links': typeof AuthenticatedAdminNavLinksRoute
+  '/admin/pages': typeof AuthenticatedAdminPagesRoute
+  '/admin/pages-list': typeof AuthenticatedAdminPagesListRoute
+  '/admin/sections': typeof AuthenticatedAdminSectionsRoute
+  '/admin/topics': typeof AuthenticatedAdminTopicsRoute
+  '/admin/videos': typeof AuthenticatedAdminVideosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/custom-lists': typeof CustomListsRoute
+  '/download': typeof DownloadRoute
+  '/evolution': typeof EvolutionRoute
+  '/flashcards': typeof FlashcardsRoute
+  '/quizzes': typeof QuizzesRoute
+  '/saved': typeof SavedRoute
+  '/settings': typeof SettingsRoute
+  '/$subject/$section': typeof SubjectSectionRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/articles/$slug': typeof ArticlesSlugRoute
+  '/articles/cellular-respiration': typeof ArticlesCellularRespirationRoute
+  '/articles/evolution-natural-selection': typeof ArticlesEvolutionNaturalSelectionRoute
+  '/articles/meiosis-gamete-formation': typeof ArticlesMeiosisGameteFormationRoute
+  '/articles/photosynthesis-light-reactions': typeof ArticlesPhotosynthesisLightReactionsRoute
+  '/_authenticated/admin/articles': typeof AuthenticatedAdminArticlesRoute
+  '/_authenticated/admin/hero-slides': typeof AuthenticatedAdminHeroSlidesRoute
+  '/_authenticated/admin/nav-links': typeof AuthenticatedAdminNavLinksRoute
+  '/_authenticated/admin/pages': typeof AuthenticatedAdminPagesRoute
+  '/_authenticated/admin/pages-list': typeof AuthenticatedAdminPagesListRoute
+  '/_authenticated/admin/sections': typeof AuthenticatedAdminSectionsRoute
+  '/_authenticated/admin/topics': typeof AuthenticatedAdminTopicsRoute
+  '/_authenticated/admin/videos': typeof AuthenticatedAdminVideosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/custom-lists'
+    | '/download'
+    | '/evolution'
+    | '/flashcards'
+    | '/quizzes'
+    | '/saved'
+    | '/settings'
+    | '/$subject/$section'
+    | '/admin'
+    | '/dashboard'
+    | '/articles/$slug'
+    | '/articles/cellular-respiration'
+    | '/articles/evolution-natural-selection'
+    | '/articles/meiosis-gamete-formation'
+    | '/articles/photosynthesis-light-reactions'
+    | '/admin/articles'
+    | '/admin/hero-slides'
+    | '/admin/nav-links'
+    | '/admin/pages'
+    | '/admin/pages-list'
+    | '/admin/sections'
+    | '/admin/topics'
+    | '/admin/videos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/custom-lists'
+    | '/download'
+    | '/evolution'
+    | '/flashcards'
+    | '/quizzes'
+    | '/saved'
+    | '/settings'
+    | '/$subject/$section'
+    | '/admin'
+    | '/dashboard'
+    | '/articles/$slug'
+    | '/articles/cellular-respiration'
+    | '/articles/evolution-natural-selection'
+    | '/articles/meiosis-gamete-formation'
+    | '/articles/photosynthesis-light-reactions'
+    | '/admin/articles'
+    | '/admin/hero-slides'
+    | '/admin/nav-links'
+    | '/admin/pages'
+    | '/admin/pages-list'
+    | '/admin/sections'
+    | '/admin/topics'
+    | '/admin/videos'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/custom-lists'
+    | '/download'
+    | '/evolution'
+    | '/flashcards'
+    | '/quizzes'
+    | '/saved'
+    | '/settings'
+    | '/$subject/$section'
+    | '/_authenticated/admin'
+    | '/_authenticated/dashboard'
+    | '/articles/$slug'
+    | '/articles/cellular-respiration'
+    | '/articles/evolution-natural-selection'
+    | '/articles/meiosis-gamete-formation'
+    | '/articles/photosynthesis-light-reactions'
+    | '/_authenticated/admin/articles'
+    | '/_authenticated/admin/hero-slides'
+    | '/_authenticated/admin/nav-links'
+    | '/_authenticated/admin/pages'
+    | '/_authenticated/admin/pages-list'
+    | '/_authenticated/admin/sections'
+    | '/_authenticated/admin/topics'
+    | '/_authenticated/admin/videos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  CustomListsRoute: typeof CustomListsRoute
+  DownloadRoute: typeof DownloadRoute
+  EvolutionRoute: typeof EvolutionRoute
+  FlashcardsRoute: typeof FlashcardsRoute
+  QuizzesRoute: typeof QuizzesRoute
+  SavedRoute: typeof SavedRoute
+  SettingsRoute: typeof SettingsRoute
+  SubjectSectionRoute: typeof SubjectSectionRoute
+  ArticlesSlugRoute: typeof ArticlesSlugRoute
+  ArticlesCellularRespirationRoute: typeof ArticlesCellularRespirationRoute
+  ArticlesEvolutionNaturalSelectionRoute: typeof ArticlesEvolutionNaturalSelectionRoute
+  ArticlesMeiosisGameteFormationRoute: typeof ArticlesMeiosisGameteFormationRoute
+  ArticlesPhotosynthesisLightReactionsRoute: typeof ArticlesPhotosynthesisLightReactionsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +373,241 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom-lists': {
+      id: '/custom-lists'
+      path: '/custom-lists'
+      fullPath: '/custom-lists'
+      preLoaderRoute: typeof CustomListsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/download': {
+      id: '/download'
+      path: '/download'
+      fullPath: '/download'
+      preLoaderRoute: typeof DownloadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/evolution': {
+      id: '/evolution'
+      path: '/evolution'
+      fullPath: '/evolution'
+      preLoaderRoute: typeof EvolutionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/flashcards': {
+      id: '/flashcards'
+      path: '/flashcards'
+      fullPath: '/flashcards'
+      preLoaderRoute: typeof FlashcardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quizzes': {
+      id: '/quizzes'
+      path: '/quizzes'
+      fullPath: '/quizzes'
+      preLoaderRoute: typeof QuizzesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saved': {
+      id: '/saved'
+      path: '/saved'
+      fullPath: '/saved'
+      preLoaderRoute: typeof SavedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$subject/$section': {
+      id: '/$subject/$section'
+      path: '/$subject/$section'
+      fullPath: '/$subject/$section'
+      preLoaderRoute: typeof SubjectSectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/articles/$slug': {
+      id: '/articles/$slug'
+      path: '/articles/$slug'
+      fullPath: '/articles/$slug'
+      preLoaderRoute: typeof ArticlesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/cellular-respiration': {
+      id: '/articles/cellular-respiration'
+      path: '/articles/cellular-respiration'
+      fullPath: '/articles/cellular-respiration'
+      preLoaderRoute: typeof ArticlesCellularRespirationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/evolution-natural-selection': {
+      id: '/articles/evolution-natural-selection'
+      path: '/articles/evolution-natural-selection'
+      fullPath: '/articles/evolution-natural-selection'
+      preLoaderRoute: typeof ArticlesEvolutionNaturalSelectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/meiosis-gamete-formation': {
+      id: '/articles/meiosis-gamete-formation'
+      path: '/articles/meiosis-gamete-formation'
+      fullPath: '/articles/meiosis-gamete-formation'
+      preLoaderRoute: typeof ArticlesMeiosisGameteFormationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles/photosynthesis-light-reactions': {
+      id: '/articles/photosynthesis-light-reactions'
+      path: '/articles/photosynthesis-light-reactions'
+      fullPath: '/articles/photosynthesis-light-reactions'
+      preLoaderRoute: typeof ArticlesPhotosynthesisLightReactionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin/articles': {
+      id: '/_authenticated/admin/articles'
+      path: '/articles'
+      fullPath: '/admin/articles'
+      preLoaderRoute: typeof AuthenticatedAdminArticlesRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/hero-slides': {
+      id: '/_authenticated/admin/hero-slides'
+      path: '/hero-slides'
+      fullPath: '/admin/hero-slides'
+      preLoaderRoute: typeof AuthenticatedAdminHeroSlidesRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/nav-links': {
+      id: '/_authenticated/admin/nav-links'
+      path: '/nav-links'
+      fullPath: '/admin/nav-links'
+      preLoaderRoute: typeof AuthenticatedAdminNavLinksRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/pages': {
+      id: '/_authenticated/admin/pages'
+      path: '/pages'
+      fullPath: '/admin/pages'
+      preLoaderRoute: typeof AuthenticatedAdminPagesRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/pages-list': {
+      id: '/_authenticated/admin/pages-list'
+      path: '/pages-list'
+      fullPath: '/admin/pages-list'
+      preLoaderRoute: typeof AuthenticatedAdminPagesListRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/sections': {
+      id: '/_authenticated/admin/sections'
+      path: '/sections'
+      fullPath: '/admin/sections'
+      preLoaderRoute: typeof AuthenticatedAdminSectionsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/topics': {
+      id: '/_authenticated/admin/topics'
+      path: '/topics'
+      fullPath: '/admin/topics'
+      preLoaderRoute: typeof AuthenticatedAdminTopicsRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
+    '/_authenticated/admin/videos': {
+      id: '/_authenticated/admin/videos'
+      path: '/videos'
+      fullPath: '/admin/videos'
+      preLoaderRoute: typeof AuthenticatedAdminVideosRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
   }
 }
 
+interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminArticlesRoute: typeof AuthenticatedAdminArticlesRoute
+  AuthenticatedAdminHeroSlidesRoute: typeof AuthenticatedAdminHeroSlidesRoute
+  AuthenticatedAdminNavLinksRoute: typeof AuthenticatedAdminNavLinksRoute
+  AuthenticatedAdminPagesRoute: typeof AuthenticatedAdminPagesRoute
+  AuthenticatedAdminPagesListRoute: typeof AuthenticatedAdminPagesListRoute
+  AuthenticatedAdminSectionsRoute: typeof AuthenticatedAdminSectionsRoute
+  AuthenticatedAdminTopicsRoute: typeof AuthenticatedAdminTopicsRoute
+  AuthenticatedAdminVideosRoute: typeof AuthenticatedAdminVideosRoute
+}
+
+const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminArticlesRoute: AuthenticatedAdminArticlesRoute,
+  AuthenticatedAdminHeroSlidesRoute: AuthenticatedAdminHeroSlidesRoute,
+  AuthenticatedAdminNavLinksRoute: AuthenticatedAdminNavLinksRoute,
+  AuthenticatedAdminPagesRoute: AuthenticatedAdminPagesRoute,
+  AuthenticatedAdminPagesListRoute: AuthenticatedAdminPagesListRoute,
+  AuthenticatedAdminSectionsRoute: AuthenticatedAdminSectionsRoute,
+  AuthenticatedAdminTopicsRoute: AuthenticatedAdminTopicsRoute,
+  AuthenticatedAdminVideosRoute: AuthenticatedAdminVideosRoute,
+}
+
+const AuthenticatedAdminRouteWithChildren =
+  AuthenticatedAdminRoute._addFileChildren(AuthenticatedAdminRouteChildren)
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRouteWithChildren
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRouteWithChildren,
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
+  CustomListsRoute: CustomListsRoute,
+  DownloadRoute: DownloadRoute,
+  EvolutionRoute: EvolutionRoute,
+  FlashcardsRoute: FlashcardsRoute,
+  QuizzesRoute: QuizzesRoute,
+  SavedRoute: SavedRoute,
+  SettingsRoute: SettingsRoute,
+  SubjectSectionRoute: SubjectSectionRoute,
+  ArticlesSlugRoute: ArticlesSlugRoute,
+  ArticlesCellularRespirationRoute: ArticlesCellularRespirationRoute,
+  ArticlesEvolutionNaturalSelectionRoute:
+    ArticlesEvolutionNaturalSelectionRoute,
+  ArticlesMeiosisGameteFormationRoute: ArticlesMeiosisGameteFormationRoute,
+  ArticlesPhotosynthesisLightReactionsRoute:
+    ArticlesPhotosynthesisLightReactionsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
