@@ -127,6 +127,15 @@ wrangler publish
 
 ### Option 2: Vercel
 
+In the Vercel project settings, configure:
+
+- **Root Directory**: `bio-pedia` (the directory containing `package.json`)
+- **Framework Preset**: `Other` (this is a TanStack Start/Vite app, not Next.js)
+- **Install Command**: `npm ci`
+- **Build Command**: `npm run build:prod`
+
+Do not add `next` to `package.json`; the application does not use Next.js.
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
