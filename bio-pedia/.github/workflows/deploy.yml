@@ -1,0 +1,83 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'bio-pedia/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: bio-pedia
+        run: npm ci
+
+      - name: Run linter
+        working-directory: bio-pedia
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build production
+        working-directory: bio-pedia
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          SITE_URL: ${{ secrets.SITE_URL }}
+          NODE_ENV: production
+        run: npm run build:prod
+
+      - name: Verify build output
+        working-directory: bio-pedia
+        run: |
+          if [ -d "dist" ]; then
+            echo "✓ Build output directory exists"
+            ls -la dist/ | head -20
+          else
+            echo "✗ Build output directory missing"
+            exit 1
+          fi
+
+      - name: Verify sitemap generated
+        working-directory: bio-pedia
+        run: |
+          if [ -f "dist/sitemap.xml" ]; then
+            echo "✓ Sitemap generated successfully"
+            head -5 dist/sitemap.xml
+          else
+            echo "⚠ Sitemap not found (will be generated at runtime)"
+          fi
+
+      - name: Deploy to Cloudflare Workers
+        if: success()
+        working-directory: bio-pedia
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npm install -D wrangler
+          npx wrangler deploy
+
+      - name: Deployment status
+        if: success()
+        run: |
+          echo "✅ Build and deployment completed successfully!"
+          echo "Site URL: ${{ secrets.SITE_URL }}"
