@@ -1,0 +1,233 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * BioPedia design system — dark bioluminescent encyclopedia.
+ * All colors are oklch semantic tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-bio-cyan: var(--bio-cyan);
+  --color-bio-violet: var(--bio-violet);
+  --color-bio-amber: var(--bio-amber);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.16 0.012 250);
+  --foreground: oklch(0.96 0.005 240);
+  --card: oklch(0.2 0.014 250);
+  --card-foreground: oklch(0.96 0.005 240);
+  --popover: oklch(0.2 0.014 250);
+  --popover-foreground: oklch(0.96 0.005 240);
+  --primary: oklch(0.78 0.19 145);
+  --primary-foreground: oklch(0.18 0.03 150);
+  --secondary: oklch(0.26 0.016 250);
+  --secondary-foreground: oklch(0.94 0.005 240);
+  --muted: oklch(0.24 0.014 250);
+  --muted-foreground: oklch(0.68 0.015 250);
+  --accent: oklch(0.3 0.03 180);
+  --accent-foreground: oklch(0.96 0.005 240);
+  --destructive: oklch(0.62 0.21 25);
+  --destructive-foreground: oklch(0.98 0.005 240);
+  --border: oklch(0.3 0.016 250);
+  --input: oklch(0.28 0.016 250);
+  --ring: oklch(0.78 0.19 145);
+  --sidebar: oklch(0.13 0.012 250);
+  --sidebar-foreground: oklch(0.9 0.006 240);
+  --sidebar-accent: oklch(0.28 0.06 150);
+  --sidebar-border: oklch(0.26 0.014 250);
+  --bio-cyan: oklch(0.75 0.14 210);
+  --bio-violet: oklch(0.68 0.2 305);
+  --bio-amber: oklch(0.8 0.15 75);
+  --gradient-hero: radial-gradient(
+    120% 120% at 75% 50%,
+    oklch(0.3 0.09 260 / 0.55) 0%,
+    oklch(0.16 0.012 250) 65%
+  );
+  --gradient-glow: linear-gradient(
+    135deg,
+    oklch(0.78 0.19 145 / 0.18),
+    oklch(0.68 0.2 305 / 0.12)
+  );
+  --shadow-glow: 0 0 0 1px oklch(0.78 0.19 145 / 0.25), 0 12px 40px oklch(0.78 0.19 145 / 0.15);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility bio-panel {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+@utility bio-hero-bg {
+  background-image: var(--gradient-hero);
+}
+
+@utility bio-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility bio-glow-tile {
+  background-image: var(--gradient-glow);
+}
+
+/*
+ * Knowledge Atlas — reskinned to the BioPedia bioluminescent palette.
+ * These custom tokens are consumed by the Atlas graph components
+ * (src/components/atlas, src/lib/wiki.tsx) via Tailwind utilities like
+ * bg-bg, text-fg, border-border, text-accent, etc. Changing the values
+ * here reskins the entire Atlas without touching component code.
+ */
+@theme inline {
+  --font-serif: var(--font-display);
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --color-bg: var(--background);
+  --color-bg-sidebar: var(--sidebar);
+  --color-bg-elevated: var(--card);
+  --color-bg-hover: var(--secondary);
+  --color-bg-active: var(--muted);
+  --color-canvas: var(--sidebar);
+  --color-fg: var(--foreground);
+  --color-fg-muted: var(--muted-foreground);
+  --color-fg-subtle: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--sidebar-border);
+  --color-accent: var(--primary);
+  --color-accent-dim: var(--bio-cyan);
+  --color-accent-fg: var(--primary-foreground);
+  --color-hub: var(--bio-amber);
+  --color-danger: var(--destructive);
+  --color-warn: var(--bio-amber);
+  --color-ok: var(--primary);
+}
+
+.atlas-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.atlas-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.atlas-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 8px;
+}
+
+.wiki-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-accent) 40%, transparent);
+  transition:
+    border-color 150ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 150ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wiki-link:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+.article-body p {
+  margin: 0 0 1.15em;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.article-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 1.8em 0 0.6em;
+  color: var(--color-fg);
+}
+
+.article-body h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.4em 0 0.45em;
+  color: var(--color-fg);
+}
+
+.article-body ul {
+  margin: 0 0 1.15em;
+  padding-left: 1.2em;
+  color: var(--muted-foreground);
+}
+
+.article-body li {
+  margin: 0.3em 0;
+  line-height: 1.6;
+}
+
+.article-body blockquote {
+  margin: 0 0 1.15em;
+  padding: 0.2em 0 0.2em 1em;
+  border-left: 2px solid var(--color-accent-dim);
+  color: var(--color-fg-muted);
+  font-style: italic;
+}
+
+.article-body em {
+  font-style: italic;
+}
+
+.article-body strong {
+  font-weight: 600;
+  color: var(--color-fg);
+}
